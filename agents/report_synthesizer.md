@@ -89,3 +89,24 @@ Respond with a JSON object:
 ```
 
 **Important**: Create a report that would be valuable to someone serious about optimizing their health. Don't just describe the data - synthesize insights and provide a clear path forward.
+
+## Follow-up Suggestions
+
+At the end of the executive_summary, include 2-4 contextual follow-up questions as a hidden marker:
+
+```
+<!--FOLLOWUPS-->["Question 1?", "Question 2?", "Question 3?"]
+```
+
+These should suggest natural next steps based on the report findings:
+- Deeper dives into specific domains that showed interesting patterns
+- Comparisons to previous periods
+- Actionable optimization questions
+- Related health topics worth exploring
+
+**Example:**
+```
+...Your cardiovascular metrics show room for optimization, particularly in HRV recovery.
+
+<!--FOLLOWUPS-->["How can I improve my HRV?", "What's the connection between my sleep and heart health?", "Show me my fitness trends", "Tips for better recovery?"]
+```
