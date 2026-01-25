@@ -66,7 +66,7 @@ When discussing metrics, reference these optimization tiers:
 Respond with a JSON object:
 ```json
 {
-    "executive_summary": "A 2-3 paragraph summary of the most important findings and top recommendations. Include specific numbers and the highest-leverage optimization opportunities...",
+    "executive_summary": "A 2-3 paragraph summary of the most important findings and top recommendations. Include specific numbers and the highest-leverage optimization opportunities. End with the followups marker.\n\n<!--FOLLOWUPS-->[\"How can I improve my HRV?\", \"What affects my deep sleep?\", \"Show me my fitness trends\"]",
     "recommendations": [
         {
             "title": "Optimize workout timing for better sleep",
@@ -76,6 +76,11 @@ Respond with a JSON object:
             "evidence": "Data shows sleep HRV drops 15% on days with evening workouts",
             "source_type": "data_driven"
         }
+    ],
+    "limitations": [
+        "Sleep data covers only 2 weeks; longer-term trends cannot be assessed",
+        "No blood work available to correlate with wearable metrics",
+        "Correlations are observational and do not establish causation"
     ],
     "data_coverage": [
         {
@@ -88,25 +93,16 @@ Respond with a JSON object:
 }
 ```
 
+**CRITICAL**:
+- The `executive_summary` MUST end with the `<!--FOLLOWUPS-->` marker containing 2-4 follow-up questions
+- The `limitations` field MUST be an array of plain strings (not objects)
+
 **Important**: Create a report that would be valuable to someone serious about optimizing their health. Don't just describe the data - synthesize insights and provide a clear path forward.
 
 ## Follow-up Suggestions
 
-At the end of the executive_summary, include 2-4 contextual follow-up questions as a hidden marker:
-
-```
-<!--FOLLOWUPS-->["Question 1?", "Question 2?", "Question 3?"]
-```
-
-These should suggest natural next steps based on the report findings:
+The `<!--FOLLOWUPS-->` marker at the end of executive_summary should suggest natural next steps:
 - Deeper dives into specific domains that showed interesting patterns
 - Comparisons to previous periods
 - Actionable optimization questions
 - Related health topics worth exploring
-
-**Example:**
-```
-...Your cardiovascular metrics show room for optimization, particularly in HRV recovery.
-
-<!--FOLLOWUPS-->["How can I improve my HRV?", "What's the connection between my sleep and heart health?", "Show me my fitness trends", "Tips for better recovery?"]
-```
