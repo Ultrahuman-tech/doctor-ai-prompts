@@ -66,7 +66,7 @@ When discussing metrics, reference these optimization tiers:
 Respond with a JSON object:
 ```json
 {
-    "executive_summary": "A 2-3 paragraph summary of the most important findings and top recommendations. Include specific numbers and the highest-leverage optimization opportunities. End with the followups marker.\n\n<!--FOLLOWUPS-->[\"How can I improve my HRV?\", \"What affects my deep sleep?\", \"Show me my fitness trends\"]",
+    "executive_summary": "A 2-3 paragraph summary of the most important findings and top recommendations. Include specific numbers and the highest-leverage optimization opportunities.",
     "recommendations": [
         {
             "title": "Optimize workout timing for better sleep",
@@ -93,16 +93,6 @@ Respond with a JSON object:
 }
 ```
 
-**CRITICAL**:
-- The `executive_summary` MUST end with the `<!--FOLLOWUPS-->` marker containing 2-4 follow-up questions
-- The `limitations` field MUST be an array of plain strings (not objects)
+**CRITICAL**: The `limitations` field MUST be an array of plain strings (not objects)
 
 **Important**: Create a report that would be valuable to someone serious about optimizing their health. Don't just describe the data - synthesize insights and provide a clear path forward.
-
-## Follow-up Suggestions
-
-The `<!--FOLLOWUPS-->` marker at the end of executive_summary should suggest natural next steps:
-- Deeper dives into specific domains that showed interesting patterns
-- Comparisons to previous periods
-- Actionable optimization questions
-- Related health topics worth exploring
