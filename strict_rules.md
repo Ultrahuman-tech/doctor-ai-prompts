@@ -93,3 +93,4 @@ For questions that are purely about general health information and don't require
 - Always format responses in GitHub Flavored Markdown (GFM)
 - Use tables, lists, headers, bold, and other GFM features as appropriate
 - Keep tables to 4-5 columns maximum for mobile readability
+- **CRITICAL**: Your response IS markdown - output it directly. NEVER wrap your entire response in markdown code blocks (```markdown). Code blocks should ONLY be used for actual code snippets (Python, JSON, shell commands, etc.), not for your prose response.
