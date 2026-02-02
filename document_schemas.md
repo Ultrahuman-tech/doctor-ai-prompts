@@ -19,6 +19,12 @@ Nightly sleep metrics:
 - Heart rate during sleep
 - HRV during sleep
 - Skin temperature during sleep
+- Sleep debt (cumulative deficit/surplus)
+- Sleep inertia (morning grogginess duration)
+- Toss & turn count (restlessness indicator)
+- Sleep cycles (complete and partial cycle counts)
+- Nocturnal score (overnight quality rating)
+- Wake after sleep onset (WASO - time awake during night)
 
 ### sleep_weekly
 Weekly aggregated sleep:
@@ -27,12 +33,20 @@ Weekly aggregated sleep:
 - Sleep schedule consistency
 - Weekly trends and patterns
 - Best/worst nights
+- Cumulative sleep debt (weekly total)
+- Average toss/turn count (restlessness)
+- Average sleep cycles (complete/partial)
+- Average nocturnal score
 
 ### sleep_monthly
 Monthly sleep summary:
 - Monthly averages for all sleep metrics
 - Long-term trend analysis
 - Month-over-month comparisons
+- Cumulative sleep debt trend
+- Average restlessness (toss/turns)
+- Sleep cycle patterns
+- Nocturnal score averages
 
 ---
 
@@ -174,6 +188,48 @@ Cycle tracking data:
 
 ---
 
+## Circadian & Sleep Timing
+
+### social_jetlag
+Weekly social jetlag analysis:
+- Jetlag minutes (difference between weekday and weekend sleep midpoints)
+- Classification (consistent sleeper, late weekend sleeper, late weekday sleeper)
+- Weekday vs weekend sleep midpoints
+- Weekday vs weekend average sleep duration
+- User's free day configuration (which days are weekends/free days)
+- Interpretation of circadian alignment
+
+### phase_alignment
+User's circadian phase alignment profile:
+- Chronotype classification (early bird, night owl, intermediate)
+- Optimal activity windows (phase advanced zone timing)
+- Sleep timing recommendations
+- Movement timing optimization
+- Calibration status
+
+---
+
+## Smart Goals
+
+### user_goals_daily
+Daily goal progress tracking:
+- Goals set (total count by category: Sleep, Movement, CGM)
+- Achievement status for each goal (achieved/not achieved)
+- Current value vs target for each goal
+- Daily completion rate percentage
+- Individual goal details (name, target, current value)
+
+### user_goals_weekly
+Weekly goals summary:
+- Active goals configuration by category (Sleep, Movement, CGM goals)
+- Weekly progress (days tracked, goals achieved, completion rate)
+- Daily breakdown (achievement per day)
+- Goal-by-goal performance (days achieved out of days tracked)
+- Best and worst performing goals
+- Interpretation of goal adherence
+
+---
+
 ## Longevity & Biological Ages
 
 ### biological_ages
@@ -250,11 +306,20 @@ Available data summary:
 | Resting Heart Rate | cardiovascular_weekly, cardiovascular_monthly, fitness_weekly, user_context |
 | Sleep Efficiency | sleep_daily, sleep_weekly, sleep_monthly |
 | Sleep Stages (Deep/REM/Light) | sleep_daily (minutes), sleep_weekly/monthly (percentages) |
+| Sleep Debt | sleep_daily, sleep_weekly (cumulative), sleep_monthly (cumulative) |
+| Sleep Inertia | sleep_daily |
+| Toss & Turn Count | sleep_daily, sleep_weekly (avg), sleep_monthly (avg) |
+| Sleep Cycles | sleep_daily, sleep_weekly (avg), sleep_monthly (avg) |
+| Nocturnal Score | sleep_daily, sleep_weekly (avg), sleep_monthly (avg) |
+| WASO (Wake After Sleep Onset) | sleep_daily |
 | Steps | movement_daily, movement_weekly, movement_monthly |
 | VO2 Max | fitness_weekly, fitness_monthly |
 | Restoration/Recovery % | recovery_weekly, recovery_monthly |
 | Glucose | metabolism_weekly, metabolism_monthly |
 | Vitamin D | lifestyle_weekly, lifestyle_monthly |
 | Body Temperature | temperature_weekly, temperature_monthly, sleep_daily |
+| Social Jetlag | social_jetlag |
+| Chronotype/Phase Alignment | phase_alignment |
+| Goal Progress | user_goals_daily, user_goals_weekly |
 
 **IMPORTANT**: Only claim data is "missing" AFTER verifying it's not in the appropriate document types listed above.
