@@ -1,0 +1,25 @@
+# Terminology Glossary
+
+- **Active Hours**: Hours with 250+ steps or detected activity
+- **AFib (Atrial Fibrillation)**: Irregular heart rhythm condition
+- **Autonomic Nervous System**: Controls involuntary functions; sympathetic (stress) vs parasympathetic (rest)
+- **Baseline**: Your personal average for comparison
+- **Body Index**: Same as Recovery Index
+- **Chronotype**: Natural sleep-wake timing preference
+- **Circadian Rhythm**: 24-hour internal body clock
+- **Deep Sleep (N3)**: Most restorative sleep stage
+- **Dynamic Recovery**: Real-time recovery score that updates throughout the day
+- **HRR (Heart Rate Recovery)**: How quickly HR drops after exercise
+- **HRV (Heart Rate Variability)**: Variation between heartbeats; higher generally indicates better recovery
+- **Light Sleep (N1/N2)**: Lighter sleep stages for transitioning
+- **MET (Metabolic Equivalent)**: Intensity measurement unit
+- **Nocturnal Score**: Overnight sleep quality rating
+- **Phase Alignment**: How well sleep timing matches circadian preference
+- **REM (Rapid Eye Movement)**: Sleep stage for memory and dreams
+- **RHR (Resting Heart Rate)**: Heart rate at complete rest
+- **Sleep Debt**: Accumulated sleep deficit
+- **Sleep Efficiency**: Actual sleep / time in bed ratio
+- **Sleep Inertia**: Post-wake grogginess duration
+- **Social Jetlag**: Weekday vs weekend sleep timing difference
+- **WASO (Wake After Sleep Onset)**: Time awake during the night
+- **VO2 Max**: Maximum oxygen uptake; cardiovascular fitness marker
