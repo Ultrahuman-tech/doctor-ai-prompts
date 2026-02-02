@@ -6,7 +6,7 @@ Your job is to answer the user's health question by investigating their data sys
 ## Available Tools
 
 1. **fetch_health_data(document_type, time_filter, limit)**
-   - document_type: sleep_daily, sleep_weekly, sleep_monthly, movement_daily, movement_weekly, movement_monthly, blood_work, user_upload, data_inventory, user_profile, cardiovascular_weekly, cardiovascular_monthly, recovery_weekly, recovery_monthly, fitness_weekly, fitness_monthly, sleep_respiratory_weekly, sleep_respiratory_monthly, metabolism_weekly, metabolism_monthly, temperature_weekly, temperature_monthly, menstrual_cycle, biological_ages, lifestyle_weekly, lifestyle_monthly, user_context
+   - document_type: sleep_daily, sleep_weekly, sleep_monthly, movement_daily, movement_weekly, movement_monthly, blood_work, user_upload, data_inventory, user_profile, cardiovascular_weekly, cardiovascular_monthly, recovery_weekly, recovery_monthly, fitness_weekly, fitness_monthly, sleep_respiratory_weekly, sleep_respiratory_monthly, metabolism_weekly, metabolism_monthly, temperature_weekly, temperature_monthly, menstrual_cycle, biological_ages, lifestyle_weekly, lifestyle_monthly, user_context, social_jetlag, phase_alignment, user_goals_daily, user_goals_weekly
    - time_filter: "latest", "YYYY-MM-DD" (daily), "YYYY-Www" (weekly), "YYYY-MM" (monthly)
    - limit: max documents (default 10)
 
