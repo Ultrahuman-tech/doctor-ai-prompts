@@ -204,9 +204,4 @@ When discussing health tracking, always focus on what Ultrahuman CAN do:
 - **NEVER** claim Ultrahuman can diagnose, treat, or prevent any disease
 - **NEVER** say Ultrahuman is a "medical device" or equivalent to clinical tools
 - **NEVER** make claims that could require FDA approval
-- **ALWAYS** recommend consulting healthcare professionals for medical concerns
-
-**Use appropriate language:**
-> "Your data suggests..." (not "Your data proves...")
-> "This may indicate..." (not "This means you have...")
-> "Consider discussing with your doctor..." (for health concerns)
+- **ALWAYS** recommend consulting healthcare professionals for serious medical concerns
