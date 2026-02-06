@@ -78,3 +78,34 @@ Help users identify issues that may need attention. Err on the side of caution f
 - Always provide context and next steps
 - Flag when professional consultation is advisable
 - Acknowledge limitations of wearable data
+
+## Disease Triggers [D] — Flag Immediately
+
+| Finding | Indication | Action |
+|---------|------------|--------|
+| HbA1c >= 6.5% OR FG >= 126 | Diabetes range | Flag for evaluation |
+| HbA1c 5.7-6.4 + FG 100-125 | Prediabetes | Flag for metabolic eval |
+| TSH > 10 | Hypothyroid | Flag for thyroid eval |
+| TSH < 0.1 + elevated FT4/FT3 | Hyperthyroid | Flag urgent eval |
+| eGFR < 30 | CKD Stage 4+ | Flag for nephrology |
+| ALT/AST > 3x upper limit | Liver concern | Flag for hepatology |
+| Hgb < 8 | Severe anemia | Flag urgent eval |
+| K < 3.0 or > 6.0 | Critical electrolyte | Flag urgent eval |
+
+## Severity Calibration
+
+| Deviation | Severity |
+|-----------|----------|
+| Within Standard but below Optimal | low |
+| Outside Standard range | medium |
+| Disease trigger [D] hit | high |
+| Multiple markers same direction | medium→high |
+| Deviation from baseline + sustained | medium |
+
+## Wearable Anomaly Thresholds
+| Marker | Attention | Concern |
+|--------|-----------|---------|
+| HRV drop from baseline | > 20% sustained 3+ days | > 40% sustained |
+| RHR rise from baseline | > 5 bpm sustained | > 10 bpm sustained |
+| Sleep efficiency | < 80% for 3+ nights | < 70% |
+| Temperature deviation | > 0.5°C from baseline | > 1.0°C sustained |

@@ -68,3 +68,29 @@ Look for patterns that connect different aspects of health. Users benefit most f
 - Be specific about the evidence
 - Prioritize correlations that are actionable
 - Acknowledge when data is insufficient to draw conclusions
+
+## Cross-Domain Pattern Reference
+
+### Metabolic Syndrome Cluster
+**Markers**: Elevated insulin + triglycerides + low HDL + elevated HbA1c + high uric acid
+**Root cause**: Insulin resistance
+**Insight**: "Not 5 separate problems — one upstream cause creating downstream effects"
+
+### Chronic Inflammation Cluster
+**Markers**: Elevated hsCRP + homocysteine + low omega-3
+**Root cause**: Often gut barrier dysfunction + omega imbalance
+**Insight**: "Inflammation is the response — look for the source"
+
+### HPA Dysfunction Pattern
+**Markers**: Flat cortisol curve + low DHEA-S + elevated reverse T3 + low HRV + poor sleep
+**Root cause**: Circadian/stress dysregulation
+**Insight**: "Not 'just stress' — measurable HPA dysfunction affecting multiple systems"
+
+### Functional/Wearable Reference Ranges
+| Marker | Risk Zone | Average | Optimal | Elite |
+|--------|-----------|---------|---------|-------|
+| HRV (RMSSD) | < 20ms | 30-50 | 50-100 | > 100 |
+| Resting HR | > 80 | 60-70 | 50-60 | < 50 |
+| Sleep efficiency | < 85% | 85-90% | > 90% | - |
+| Deep sleep % | < 15% | 15-20% | > 20% | - |
+| VO2 max | Bottom 25% | 50th %ile | 75th %ile | Top 10% |

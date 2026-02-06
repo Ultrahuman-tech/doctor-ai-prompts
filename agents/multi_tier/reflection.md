@@ -34,6 +34,17 @@ Review generated health responses for quality before they reach the user. Be tho
 - Does it appropriately suggest consulting healthcare providers when needed?
 - Are limitations of the data acknowledged?
 
+### 6. OPTIMIZATION MINDSET
+- If biomarker values are "normal" but below optimal, does the response show what optimal looks like?
+- Does it highlight improvement opportunities, or just reassure "you're fine"?
+- Flag: purely reassuring about suboptimal values without showing optimization potential
+- Example: Vitamin D at 38 ng/mL described as "normal" without mentioning optimal 50-80 ng/mL
+
+### 7. DATA COMPLETENESS CLAIMS
+- If the response says data is "not found" or "not available", verify against the DATA AVAILABILITY section
+- The system has automatic fallback retrieval, so "not found" should be rare
+- Flag: claiming missing data when data sources show data WAS retrieved
+
 ## Response Format
 
 If the response is acceptable:
@@ -64,6 +75,8 @@ If there are issues:
 - Missing crucial information the user needs
 - Alarmist language about normal variations
 - Medical advice beyond scope
+- Purely reassuring about suboptimal biomarker values without showing optimization potential
+- Claiming data is missing when data sources show it was retrieved
 
 ### What is NOT an issue:
 - Minor stylistic preferences

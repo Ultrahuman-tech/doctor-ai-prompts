@@ -66,7 +66,7 @@ Each Tier 1 agent retrieves specific health documents. Here's what each contains
 - `goals_weekly` - Weekly goal achievement rates. Retention: 1 year.
 
 **Clinical/Labs:**
-- `blood_work` - Blood test results: all markers with values, units, reference ranges. One per test.
+- `blood_work` - Blood test results with biomarker groups: Thyroid (TSH, FT3, FT4 — affects: energy, hair, weight, mood, skin), Glucose (FG, HbA1c, Insulin — affects: energy, weight, fatigue), Nutrients (Ferritin, B12, Vit D, Iron, Zinc — affects: energy, hair, cognition, immunity), Lipids (Cholesterol, LDL, HDL, ApoB — affects: cardiovascular), Inflammation (hs-CRP, Homocysteine — affects: fatigue, joint pain), Hormones (Cortisol, Testosterone, Estradiol — affects: energy, mood, libido), CBC (Hemoglobin, RBC, WBC — affects: oxygen delivery, immunity, fatigue). One report per test.
 - `menstrual_cycle` - Cycle tracking: phases, phase-specific baselines.
 - `biological_ages` - Monthly: Cardio Age, Brain Age (glymphatic health), Pulse Age (vascular health), Ultra Age.
 - `vitals_records` - All-time vital records: best HRV, lowest RHR ever.
@@ -151,6 +151,57 @@ You will receive JSON with:
 - `available_document_types`: (optional) Document types with data
 
 Only select agents from the `available_agents` list - these are filtered to show only agents with actual data for this user.
+
+## Symptom Query Routing
+
+This ONLY applies when the user describes a physical symptom or health complaint.
+Does NOT apply to general queries like "how am I doing" or "give me a health summary".
+
+When a symptom is detected AND `blood_work` is in `available_agents`, ALWAYS include it.
+
+| Symptom | Also Include | blood_work Biomarkers |
+|---------|-------------|----------------------|
+| Hair loss/thinning | sleep, recovery | TSH, Ferritin, B12, Vitamin D, Zinc, Iron |
+| Fatigue/always tired | sleep, recovery, metabolism | Thyroid, B12, Iron/Ferritin, Glucose/HbA1c |
+| Skin issues | lifestyle | Thyroid, Nutrients, Inflammation (hs-CRP) |
+| Brain fog | sleep, metabolism | Thyroid, B12, Glucose, Iron, Vitamin D |
+| Joint pain | movement, recovery | hs-CRP, Uric Acid, Vitamin D, Homocysteine |
+| Weight gain | metabolism, movement, lifestyle | Thyroid, Glucose/Insulin/HOMA-IR, Cortisol, Lipids |
+| Mood/anxiety | sleep, recovery | Thyroid, B12, Vitamin D, Cortisol, Hormones |
+| Muscle weakness | fitness, recovery | Magnesium, Potassium, Vitamin D, Calcium |
+| Poor sleep despite good habits | cardio, recovery | Cortisol, Thyroid, Magnesium, Iron |
+| Low energy despite exercise | fitness, recovery, metabolism | Thyroid, B12, Iron/Ferritin, Glucose, Cortisol |
+
+**Only include `blood_work` if it's in `available_agents`.**
+
+## Special Query Detection
+
+### All-Time Records
+Trigger: "best/worst/highest/lowest ever", "personal best/record", "all-time", "have I ever"
+- Sleep → `sleep_records`, Movement → `movement_records`, Vitals → `vitals_records`
+- Recovery → `recovery_records`, Overall → `health_milestones`
+- "Show all my records" → include ALL of the above
+
+### Product Knowledge
+Trigger: "what does X mean", "how is X calculated", "what affects X", "explain X"
+- "What does my sleep score mean?" → `product_knowledge` + relevant domain agents
+- "How is recovery calculated?" → `product_knowledge` only
+
+### GLP-1/Medication
+Trigger: Ozempic, Wegovy, Mounjaro, Zepbound, Saxenda, Semaglutide, Tirzepatide, GLP-1
+- Always include both `glp1_general` + `glp1_daily` (if in available_agents)
+
+### Conversation Context
+When `conversation_context` is provided:
+- Follow-up questions without time references → use time frame from context
+- New time period specified → use that instead
+
+## Time Scope Defaults
+- General question with no time reference → daily or weekly agents (most recent)
+- "yesterday/today/last night" → daily agents
+- "this week/last week" → weekly agents
+- "this month/over time/past 3 months" → monthly agents
+- When ambiguous → include BOTH daily AND weekly
 
 ## Examples
 
