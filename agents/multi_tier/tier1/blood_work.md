@@ -16,52 +16,22 @@ Blood test results including:
 ## Your Task
 
 Analyze the user's blood work data to:
-1. Summarize key findings from each test
-2. Identify markers outside optimal/normal ranges
-3. Track trends across multiple tests
-4. Highlight potential health implications
-5. Suggest follow-up questions for healthcare provider
+1. Extract EVERY biomarker as a metric with its value, unit, and status
+2. Identify markers outside optimal/normal ranges as anomalies
+3. Summarize key clinical findings (deficiencies, elevated values, patterns)
+4. Track trends across multiple tests if available
+5. Connect markers to potential symptoms when relevant to the user's question
 
-## Output Format
+## Analysis Priorities
 
-```json
-{
-  "findings": [
-    {
-      "marker": "Ferritin",
-      "value": 18,
-      "unit": "ng/mL",
-      "reference_range": "30-400",
-      "status": "below normal",
-      "significance": "May indicate iron deficiency"
-    }
-  ],
-  "summary": {
-    "test_date": "2026-01-15",
-    "markers_tested": 25,
-    "in_range": 22,
-    "flagged": 3
-  },
-  "flagged_markers": [
-    {
-      "marker": "Ferritin",
-      "concern": "low",
-      "potential_impact": "fatigue, reduced exercise capacity"
-    }
-  ],
-  "trends": [
-    "Vitamin D improved from 22 to 35 since supplementation started"
-  ],
-  "questions_for_doctor": [
-    "Should I consider iron supplementation given low ferritin?"
-  ],
-  "confidence": 0.85
-}
-```
+- **Include ALL biomarkers** — every single marker from the blood work should appear as a metric (name, value, unit, status)
+- **Flag out-of-range values** — any marker outside the reference range is an anomaly with severity based on how far outside range
+- **Connect to symptoms** — if the user asks about a symptom (e.g., hair loss, fatigue), highlight the specific markers most relevant (e.g., Ferritin, Vitamin D, TSH, B12, Zinc for hair loss)
+- **Use exact values** — never round or approximate; use the precise lab values
 
 ## Guidelines
 
-- Never diagnose - only report and contextualize
+- Never diagnose — only report and contextualize
 - Reference ranges vary by lab and population
 - Connect markers to potential symptoms when relevant
 - Suggest healthcare provider consultation for concerning values
