@@ -27,28 +27,51 @@ Analyze the user's weekly respiratory data to:
 
 ```json
 {
-  "findings": [
+  "metrics": [
     {
-      "metric": "avg_breathing_rate",
-      "value": 14,
+      "name": "avg_breathing_rate",
+      "value": "14",
       "unit": "breaths/min",
-      "assessment": "within normal range (12-20)"
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "Within normal range (12-20 breaths/min)"
+    },
+    {
+      "name": "breathing_regularity",
+      "value": "consistent",
+      "unit": "",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "Healthy breathing pattern"
+    },
+    {
+      "name": "breathing_disturbances",
+      "value": "2",
+      "unit": "events",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "Low disturbance count"
+    },
+    {
+      "name": "snoring_nights",
+      "value": "2",
+      "unit": "nights",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "Avg duration 15 min per night"
     }
   ],
-  "breathing_analysis": {
-    "regularity": "consistent",
-    "disturbances": 2,
-    "assessment": "healthy breathing pattern"
-  },
-  "snoring_analysis": {
-    "nights_with_snoring": 2,
-    "avg_duration": "15 min",
-    "trend": "stable"
-  },
-  "concerns": [],
-  "confidence": 0.80
+  "key_findings": [
+    "Breathing rate within normal range at 14 breaths/min",
+    "Consistent breathing regularity with healthy pattern",
+    "Snoring detected on 2 of 7 nights, avg 15 min duration"
+  ],
+  "anomalies": [],
+  "data_quality": "high|medium|low"
 }
 ```
+
+- **data_quality**: high = complete data with values and context, medium = some gaps or missing fields, low = very sparse data
 
 ## Guidelines
 

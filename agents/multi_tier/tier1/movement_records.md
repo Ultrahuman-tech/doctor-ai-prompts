@@ -26,20 +26,42 @@ Analyze the user's movement records to:
 
 ```json
 {
-  "records": {
-    "highest_steps": {"value": 25000, "date": "2025-04-10"},
-    "best_movement_index": {"value": 95, "date": "2025-03-22"},
-    "longest_goal_streak": {"value": 21, "unit": "days"}
-  },
-  "current_context": [
-    "Today's 12,000 steps is 48% of your all-time record"
+  "metrics": [
+    {
+      "name": "highest_steps_record",
+      "value": "25000",
+      "unit": "steps",
+      "trend": "stable",
+      "status": "optimal",
+      "comparison": "Set on 2025-04-10"
+    },
+    {
+      "name": "best_movement_index",
+      "value": "95",
+      "unit": "points",
+      "trend": "stable",
+      "status": "optimal",
+      "comparison": "Set on 2025-03-22"
+    },
+    {
+      "name": "longest_goal_streak",
+      "value": "21",
+      "unit": "days",
+      "trend": "stable",
+      "status": "optimal",
+      "comparison": ""
+    }
   ],
-  "recent_achievements": [
-    "New personal best for weekly MET-minutes"
+  "key_findings": [
+    "Today's 12,000 steps is 48% of all-time record (25,000)",
+    "New personal best for weekly MET-minutes — recent achievement"
   ],
-  "confidence": 0.90
+  "anomalies": [],
+  "data_quality": "high"
 }
 ```
+
+`data_quality`: high = complete data with values and context, medium = some gaps, low = very sparse
 
 ## Guidelines
 

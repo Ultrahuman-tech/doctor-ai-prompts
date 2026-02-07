@@ -27,30 +27,28 @@ Analyze the user's GLP-1 profile to:
 
 ```json
 {
-  "findings": [
-    {
-      "metric": "current_dose",
-      "value": "0.5mg",
-      "medication": "Ozempic",
-      "frequency": "weekly"
-    }
+  "metrics": [
+    {"name": "medication", "value": "Ozempic (semaglutide)", "unit": "", "trend": "stable", "status": "normal", "comparison": ""},
+    {"name": "current_dose", "value": "0.5", "unit": "mg", "trend": "stable", "status": "normal", "comparison": "Weekly injection"},
+    {"name": "treatment_start_date", "value": "2025-10-15", "unit": "", "trend": "stable", "status": "normal", "comparison": "~3 months on treatment"},
+    {"name": "time_on_current_dose", "value": "6", "unit": "weeks", "trend": "stable", "status": "normal", "comparison": "Started 0.5mg on 2025-11-12"},
+    {"name": "titration_steps_completed", "value": "2", "unit": "steps", "trend": "improving", "status": "normal", "comparison": "0.25mg -> 0.5mg, next potential: 1mg"}
   ],
-  "medication_summary": {
-    "medication": "Ozempic (semaglutide)",
-    "treatment_start": "2025-10-15",
-    "current_dose": "0.5mg weekly",
-    "time_on_current_dose": "6 weeks"
-  },
-  "titration_history": [
-    {"date": "2025-10-15", "dose": "0.25mg", "duration": "4 weeks"},
-    {"date": "2025-11-12", "dose": "0.5mg", "duration": "ongoing"}
+  "key_findings": [
+    "Currently on Ozempic (semaglutide) 0.5mg weekly, started treatment 2025-10-15",
+    "Titration history: 0.25mg for 4 weeks (2025-10-15), then 0.5mg ongoing (2025-11-12)",
+    "6 weeks on current dose of 0.5mg",
+    "Typical titration schedule: 0.25mg -> 0.5mg -> 1mg over several months",
+    "Next potential dose increase to 1mg - discuss timing with healthcare provider"
   ],
-  "context": [
-    "Typical titration: 0.25mg → 0.5mg → 1mg over several months"
-  ],
-  "confidence": 0.90
+  "anomalies": [],
+  "data_quality": "high"
 }
 ```
+
+Map medication name, current dose, treatment start date, time on current dose, and titration steps to metrics. Map titration history, medication context, and typical schedules to key_findings. Report anomalies only if dosing appears inconsistent or there are gaps in treatment.
+
+Data quality guidance: high = complete medication profile with titration history, medium = some titration dates missing, low = very sparse medication information.
 
 ## Guidelines
 

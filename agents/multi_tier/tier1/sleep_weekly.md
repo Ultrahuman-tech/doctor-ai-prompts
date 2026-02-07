@@ -29,28 +29,52 @@ Analyze the user's weekly sleep data to:
 
 ```json
 {
-  "findings": [
+  "metrics": [
     {
-      "metric": "avg_sleep_score",
-      "value": 76,
-      "delta": "+4 vs prior week",
-      "significance": "improving"
+      "name": "avg_sleep_score",
+      "value": "76",
+      "unit": "points",
+      "trend": "improving",
+      "status": "normal",
+      "comparison": "+4 vs prior week"
+    },
+    {
+      "name": "deep_sleep_pct",
+      "value": "18",
+      "unit": "%",
+      "trend": "stable",
+      "status": "optimal",
+      "comparison": "Within optimal range (15-20%)"
+    },
+    {
+      "name": "bedtime_consistency",
+      "value": "10:30pm - 11:45pm",
+      "unit": "range",
+      "trend": "stable",
+      "status": "attention",
+      "comparison": "Moderate variability, wider than prior week"
     }
   ],
-  "trends": [
-    "Sleep score improving over past 3 weeks"
+  "key_findings": [
+    "Sleep score improving over past 3 weeks",
+    "Deep sleep percentage within optimal range at 18%",
+    "Social jetlag detected: 45 min later bedtime on weekends"
   ],
-  "consistency": {
-    "bedtime_range": "10:30pm - 11:45pm",
-    "assessment": "moderate variability"
-  },
-  "stage_analysis": {
-    "deep_sleep_pct": 18,
-    "assessment": "within optimal range (15-20%)"
-  },
-  "confidence": 0.85
+  "anomalies": [
+    {
+      "description": "Cumulative sleep debt increased to 4.5 hours",
+      "severity": "medium",
+      "metric_name": "sleep_debt",
+      "observed_value": "4.5 hours",
+      "expected_range": "0-2 hours",
+      "date": ""
+    }
+  ],
+  "data_quality": "high|medium|low"
 }
 ```
+
+- **data_quality**: high = complete data with values and context, medium = some gaps or missing fields, low = very sparse data
 
 ## Guidelines
 

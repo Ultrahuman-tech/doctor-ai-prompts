@@ -25,37 +25,38 @@ Analyze the user's daily GLP-1 data to:
 
 ```json
 {
-  "findings": [
+  "metrics": [
+    {"name": "current_weight", "value": "185", "unit": "lbs", "trend": "declining", "status": "optimal", "comparison": "Down 8 lbs from starting weight 193 lbs"},
+    {"name": "weight_change_total", "value": "-8", "unit": "lbs", "trend": "declining", "status": "optimal", "comparison": "Since starting treatment"},
+    {"name": "weight_change_weekly", "value": "-0.8", "unit": "lbs/week", "trend": "stable", "status": "optimal", "comparison": "Steady weekly loss rate"},
+    {"name": "last_dose_date", "value": "2026-01-20", "unit": "", "trend": "stable", "status": "normal", "comparison": "3 days ago"},
+    {"name": "dose_adherence_rate", "value": "100", "unit": "%", "trend": "stable", "status": "optimal", "comparison": "Over past month"},
+    {"name": "symptom_severity", "value": "mild", "unit": "", "trend": "improving", "status": "normal", "comparison": "Mild nausea days 1-2 post-dose"}
+  ],
+  "key_findings": [
+    "Weight trending down steadily at -0.8 lbs/week since starting treatment",
+    "100% dose adherence over the past month - last dose 2026-01-20",
+    "Reported symptoms: mild nausea and reduced appetite, most common days 1-2 post-dose",
+    "Sleep quality stable despite medication",
+    "Energy levels maintained throughout treatment"
+  ],
+  "anomalies": [
     {
-      "metric": "weight_trend",
-      "current": 185,
-      "change": "-8 lbs",
-      "period": "since starting treatment"
+      "description": "Increased nausea severity after dose increase",
+      "severity": "medium",
+      "metric_name": "symptom_severity",
+      "observed_value": "moderate nausea for 3 days",
+      "expected_range": "mild nausea for 1-2 days",
+      "date": "2026-01-20"
     }
   ],
-  "dose_adherence": {
-    "last_dose_date": "2026-01-20",
-    "days_since_dose": 3,
-    "adherence_rate": "100% over past month"
-  },
-  "symptom_tracking": {
-    "reported_symptoms": ["mild nausea", "reduced appetite"],
-    "severity": "mild",
-    "pattern": "Symptoms most common days 1-2 post-dose"
-  },
-  "weight_progress": {
-    "starting_weight": 193,
-    "current_weight": 185,
-    "total_loss": "8 lbs",
-    "weekly_trend": "-0.8 lbs/week"
-  },
-  "correlations": [
-    "Sleep quality stable despite medication",
-    "Energy levels maintained"
-  ],
-  "confidence": 0.85
+  "data_quality": "high"
 }
 ```
+
+Map weight metrics, dose adherence, symptom severity, and treatment progress to metrics. Map correlations with other health data, symptom patterns, and treatment observations to key_findings. Report concerning symptom changes, missed doses, or unexpected weight patterns as anomalies.
+
+Data quality guidance: high = complete daily tracking with doses, symptoms, and weight, medium = some days missing entries, low = very sparse daily tracking data.
 
 ## Guidelines
 

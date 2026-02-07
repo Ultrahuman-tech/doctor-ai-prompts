@@ -25,20 +25,42 @@ Analyze the user's recovery records to:
 
 ```json
 {
-  "records": {
-    "best_restoration": {"value": 95, "date": "2025-06-15"},
-    "longest_high_recovery_streak": {"value": 14, "unit": "days"},
-    "lowest_weekly_stress": {"value": 22, "date": "2025-07-01"}
-  },
-  "current_context": [
-    "Current 7-day high-recovery streak, halfway to your record of 14"
+  "metrics": [
+    {
+      "name": "best_restoration",
+      "value": "95",
+      "unit": "%",
+      "trend": "stable",
+      "status": "optimal",
+      "comparison": "Personal best achieved on 2025-06-15"
+    },
+    {
+      "name": "longest_high_recovery_streak",
+      "value": "14",
+      "unit": "days",
+      "trend": "stable",
+      "status": "optimal",
+      "comparison": "Record streak"
+    },
+    {
+      "name": "lowest_weekly_stress",
+      "value": "22",
+      "unit": "points",
+      "trend": "stable",
+      "status": "optimal",
+      "comparison": "Best weekly stress score achieved on 2025-07-01"
+    }
   ],
-  "recent_achievements": [
+  "key_findings": [
+    "Current 7-day high-recovery streak, halfway to your record of 14",
     "Best monthly restoration average in 6 months"
   ],
-  "confidence": 0.90
+  "anomalies": [],
+  "data_quality": "high|medium|low"
 }
 ```
+
+- **data_quality**: high = complete data with values and context, medium = some gaps or missing fields, low = very sparse data
 
 ## Guidelines
 

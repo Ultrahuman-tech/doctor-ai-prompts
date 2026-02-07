@@ -25,29 +25,52 @@ Analyze the user's monthly recovery data to:
 
 ```json
 {
-  "findings": [
+  "metrics": [
     {
-      "metric": "monthly_restoration_avg",
-      "value": 74,
-      "trend": "stable over past 3 months",
-      "significance": "neutral"
+      "name": "monthly_restoration_avg",
+      "value": "74",
+      "unit": "%",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "Stable over past 3 months"
+    },
+    {
+      "name": "monthly_stress_avg",
+      "value": "38",
+      "unit": "points",
+      "trend": "improving",
+      "status": "normal",
+      "comparison": "Stress levels decreased over past quarter"
+    },
+    {
+      "name": "cortisol_rhythm",
+      "value": "82",
+      "unit": "points",
+      "trend": "improving",
+      "status": "optimal",
+      "comparison": "Morning cortisol rhythm normalizing"
     }
   ],
-  "long_term_trends": {
-    "restoration": "Improving gradually since reducing work hours",
-    "stress": "Stress levels decreased over past quarter",
-    "cortisol": "Morning cortisol rhythm normalizing"
-  },
-  "seasonal_patterns": [
-    "Recovery tends to dip during high-stress work periods"
+  "key_findings": [
+    "Restoration improving gradually since reducing work hours",
+    "Stress levels decreased over past quarter",
+    "Recovery trajectory improving over past 6 months"
   ],
-  "trajectory": {
-    "direction": "improving",
-    "timeframe": "past 6 months"
-  },
-  "confidence": 0.85
+  "anomalies": [
+    {
+      "description": "Recovery tends to dip during high-stress work periods",
+      "severity": "low",
+      "metric_name": "restoration",
+      "observed_value": "dip pattern",
+      "expected_range": "consistent 70-85%",
+      "date": ""
+    }
+  ],
+  "data_quality": "high|medium|low"
 }
 ```
+
+- **data_quality**: high = complete data with values and context, medium = some gaps or missing fields, low = very sparse data
 
 ## Guidelines
 

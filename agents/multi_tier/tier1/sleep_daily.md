@@ -29,26 +29,52 @@ Analyze the user's daily sleep data to:
 
 ```json
 {
-  "findings": [
+  "metrics": [
     {
-      "metric": "sleep_score",
-      "value": 78,
-      "context": "Above your baseline of 72",
-      "significance": "positive"
+      "name": "sleep_score",
+      "value": "78",
+      "unit": "points",
+      "trend": "improving|declining|stable|insufficient_data",
+      "status": "normal|optimal|attention|unknown",
+      "comparison": "Above your baseline of 72"
+    },
+    {
+      "name": "sleep_efficiency",
+      "value": "88",
+      "unit": "%",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "Consistent with last week"
+    },
+    {
+      "name": "deep_sleep",
+      "value": "62",
+      "unit": "min",
+      "trend": "improving",
+      "status": "optimal",
+      "comparison": "10 min above baseline"
     }
   ],
-  "patterns": [
-    "Deep sleep consistently higher on weeknights vs weekends"
+  "key_findings": [
+    "Deep sleep consistently higher on weeknights vs weekends",
+    "Best sleep score (92) on Tuesday",
+    "Average bedtime shifted 30 min earlier this week"
   ],
-  "concerns": [
-    "Sleep efficiency below 80% on 3 of last 7 nights"
+  "anomalies": [
+    {
+      "description": "Sleep efficiency below 80% on 3 of last 7 nights",
+      "severity": "medium",
+      "metric_name": "sleep_efficiency",
+      "observed_value": "below 80%",
+      "expected_range": "85-95%",
+      "date": ""
+    }
   ],
-  "highlights": [
-    "Best sleep score (92) on Tuesday"
-  ],
-  "confidence": 0.85
+  "data_quality": "high|medium|low"
 }
 ```
+
+- **data_quality**: high = complete data with values and context, medium = some gaps or missing fields, low = very sparse data
 
 ## Guidelines
 

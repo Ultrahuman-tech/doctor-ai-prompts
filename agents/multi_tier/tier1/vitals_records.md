@@ -25,21 +25,26 @@ Analyze the user's vitals records to:
 
 ```json
 {
-  "records": {
-    "best_hrv": {"value": 72, "unit": "ms", "date": "2025-08-10"},
-    "lowest_rhr": {"value": 52, "unit": "bpm", "date": "2025-09-15"},
-    "peak_hr": {"value": 185, "unit": "bpm", "date": "2025-07-20"}
-  },
-  "current_context": [
-    "Your current HRV of 58ms is 80% of your personal best",
-    "Resting HR improving - now within 4bpm of your record low"
+  "metrics": [
+    {"name": "best_hrv", "value": "72", "unit": "ms", "trend": "stable", "status": "optimal", "comparison": "Personal best recorded on 2025-08-10"},
+    {"name": "lowest_rhr", "value": "52", "unit": "bpm", "trend": "stable", "status": "optimal", "comparison": "Personal best recorded on 2025-09-15"},
+    {"name": "peak_hr", "value": "185", "unit": "bpm", "trend": "stable", "status": "normal", "comparison": "Personal record recorded on 2025-07-20"},
+    {"name": "current_hrv_vs_best", "value": "80", "unit": "%", "trend": "stable", "status": "normal", "comparison": "Current 58ms is 80% of personal best 72ms"},
+    {"name": "current_rhr_vs_best", "value": "56", "unit": "bpm", "trend": "improving", "status": "normal", "comparison": "Within 4 bpm of record low 52 bpm"}
   ],
-  "recent_achievements": [
+  "key_findings": [
+    "Current HRV of 58ms is 80% of personal best (72ms on 2025-08-10)",
+    "Resting HR improving - now within 4 bpm of record low (52 bpm on 2025-09-15)",
     "Set new personal best for lowest waking heart rate last week"
   ],
-  "confidence": 0.90
+  "anomalies": [],
+  "data_quality": "high"
 }
 ```
+
+Map each personal record and current-vs-record comparison to metrics. Map contextual observations, current proximity to records, and recent record-breaking achievements to key_findings. Report anomalies only if records seem inconsistent or data integrity is questionable.
+
+Data quality guidance: high = complete vital records with dates and current context, medium = some records missing dates or limited comparison data, low = very sparse records.
 
 ## Guidelines
 

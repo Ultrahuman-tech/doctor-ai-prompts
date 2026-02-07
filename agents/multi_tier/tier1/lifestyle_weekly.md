@@ -21,37 +21,66 @@ Analyze the user's weekly lifestyle data to:
 
 ## Output Format
 
+Return ONLY valid JSON (no markdown, no commentary):
+
 ```json
 {
-  "findings": [
+  "metrics": [
     {
-      "metric": "vitamin_d_absorption",
-      "value": 75,
+      "name": "vitamin_d_absorption",
+      "value": "75",
       "unit": "% of target",
-      "assessment": "on track"
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "On track for weekly target"
+    },
+    {
+      "name": "sun_exposure",
+      "value": "25",
+      "unit": "minutes/day",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": ""
+    },
+    {
+      "name": "avg_daily_screen_time",
+      "value": "4.5",
+      "unit": "hours",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": ""
+    },
+    {
+      "name": "evening_screen_time",
+      "value": "1.2",
+      "unit": "hours",
+      "trend": "stable",
+      "status": "attention",
+      "comparison": "May affect sleep quality"
     }
   ],
-  "vitamin_d_analysis": {
-    "avg_daily_absorption": 1500,
-    "unit": "IU",
-    "sun_exposure_minutes": 25,
-    "progress_to_target": "75%"
-  },
-  "screen_time_analysis": {
-    "avg_daily": 4.5,
-    "unit": "hours",
-    "evening_screen_time": 1.2,
-    "assessment": "moderate, but evening use may affect sleep"
-  },
-  "correlations": [
-    "Days with lower evening screen time had better sleep scores"
+  "key_findings": [
+    "Days with lower evening screen time had better sleep scores",
+    "Consider reducing screen time after 9pm for improved sleep"
   ],
-  "recommendations": [
-    "Consider reducing screen time after 9pm"
+  "anomalies": [
+    {
+      "description": "Evening screen time spike on Tuesday",
+      "severity": "low",
+      "metric_name": "evening_screen_time",
+      "observed_value": "3.5 hours",
+      "expected_range": "0.5-1.5 hours",
+      "date": "2026-01-21"
+    }
   ],
-  "confidence": 0.80
+  "data_quality": "high"
 }
 ```
+
+- **metrics**: Each lifestyle metric as a separate entry. `trend`: improving|declining|stable|insufficient_data. `status`: normal|optimal|attention|unknown.
+- **key_findings**: Correlations, recommendations, and actionable insights as strings with specific numbers.
+- **anomalies**: Concerning patterns or outliers. `severity`: low|medium|high. Include date when available.
+- **data_quality**: high = complete data with values and context, medium = some gaps, low = very sparse.
 
 ## Guidelines
 

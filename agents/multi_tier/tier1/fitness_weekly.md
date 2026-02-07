@@ -27,30 +27,43 @@ Analyze the user's weekly fitness data to:
 
 ```json
 {
-  "findings": [
+  "metrics": [
     {
-      "metric": "vo2max",
-      "value": 42,
-      "trend": "improving +1.5 over past month",
-      "significance": "positive"
+      "name": "vo2max",
+      "value": "42",
+      "unit": "mL/kg/min",
+      "trend": "improving",
+      "status": "normal",
+      "comparison": "+1.5 over past month"
+    },
+    {
+      "name": "weekly_workouts",
+      "value": "4",
+      "unit": "sessions",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": ""
+    },
+    {
+      "name": "training_load",
+      "value": "moderate",
+      "unit": "",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "Good intensity distribution: 60% easy, 30% moderate, 10% intense"
     }
   ],
-  "training_analysis": {
-    "weekly_load": "moderate",
-    "workouts": 4,
-    "intensity_split": {"easy": "60%", "moderate": "30%", "intense": "10%"},
-    "assessment": "good distribution"
-  },
-  "progression": {
-    "fitness_direction": "improving",
-    "evidence": "VO2max up, consistent training"
-  },
-  "recommendations": [
+  "key_findings": [
+    "VO2max improving — up 1.5 over past month with consistent training",
+    "Good intensity distribution: 60% easy, 30% moderate, 10% intense — supports aerobic development",
     "Current training load supports fitness gains"
   ],
-  "confidence": 0.85
+  "anomalies": [],
+  "data_quality": "high"
 }
 ```
+
+`data_quality`: high = complete data with values and context, medium = some gaps, low = very sparse
 
 ## Guidelines
 

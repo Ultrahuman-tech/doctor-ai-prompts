@@ -26,35 +26,61 @@ Analyze the user's weekly recovery data to:
 
 ```json
 {
-  "findings": [
+  "metrics": [
     {
-      "metric": "avg_restoration",
-      "value": 72,
-      "vs_prior_week": "+5%",
-      "significance": "improving"
+      "name": "avg_restoration",
+      "value": "72",
+      "unit": "%",
+      "trend": "improving",
+      "status": "normal",
+      "comparison": "+5% vs prior week"
+    },
+    {
+      "name": "avg_cortisol_rhythm",
+      "value": "78",
+      "unit": "points",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "Consistent with baseline"
+    },
+    {
+      "name": "avg_stress_score",
+      "value": "45",
+      "unit": "points",
+      "trend": "declining",
+      "status": "attention",
+      "comparison": "Elevated on workdays"
     }
   ],
-  "recovery_state": {
-    "overall": "good",
-    "avg_restoration": 72,
-    "trend": "improving"
-  },
-  "contributors_analysis": {
-    "helping": ["Deep sleep above baseline", "Consistent sleep schedule"],
-    "hurting": ["Elevated stress before bed", "Low HRV mid-week"]
-  },
-  "stress_impact": {
-    "avg_stress_score": 45,
-    "stress_events": 2,
-    "pattern": "Elevated stress on workdays"
-  },
-  "notable_days": {
-    "best": {"day": "Sunday", "restoration": 88},
-    "lowest": {"day": "Thursday", "restoration": 58}
-  },
-  "confidence": 0.85
+  "key_findings": [
+    "Overall recovery state is good with improving trend",
+    "Deep sleep above baseline and consistent sleep schedule are helping recovery",
+    "Best recovery day: Sunday (88% restoration), lowest: Thursday (58%)",
+    "Elevated stress before bed and low HRV mid-week are hurting recovery"
+  ],
+  "anomalies": [
+    {
+      "description": "Low restoration on Thursday coinciding with stress event",
+      "severity": "medium",
+      "metric_name": "restoration",
+      "observed_value": "58%",
+      "expected_range": "65-85%",
+      "date": ""
+    },
+    {
+      "description": "Elevated stress before bed on 3 of 7 nights",
+      "severity": "low",
+      "metric_name": "stress_before_bed",
+      "observed_value": "elevated",
+      "expected_range": "low-moderate",
+      "date": ""
+    }
+  ],
+  "data_quality": "high|medium|low"
 }
 ```
+
+- **data_quality**: high = complete data with values and context, medium = some gaps or missing fields, low = very sparse data
 
 ## Guidelines
 

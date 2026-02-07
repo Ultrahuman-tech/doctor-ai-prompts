@@ -22,30 +22,50 @@ Analyze the user's monthly metabolic data to:
 
 ## Output Format
 
+Return ONLY valid JSON (no markdown, no commentary):
+
 ```json
 {
-  "findings": [
+  "metrics": [
     {
-      "metric": "monthly_metabolic_score",
-      "value": 76,
-      "trend": "improving +5 over past 3 months",
-      "significance": "positive"
+      "name": "monthly_metabolic_score",
+      "value": "76",
+      "unit": "points",
+      "trend": "improving",
+      "status": "normal",
+      "comparison": "+5 over past 3 months"
+    },
+    {
+      "name": "glucose_stability",
+      "value": "improving",
+      "unit": "",
+      "trend": "improving",
+      "status": "normal",
+      "comparison": "Improving since diet changes"
+    },
+    {
+      "name": "metabolic_trajectory",
+      "value": "improving",
+      "unit": "",
+      "trend": "improving",
+      "status": "optimal",
+      "comparison": "Driven by consistent meal timing and increased activity"
     }
   ],
-  "long_term_trends": {
-    "metabolic_score": "steady improvement",
-    "glucose_stability": "improving since diet changes"
-  },
-  "lifestyle_correlations": [
-    "Metabolic scores improved after reducing late-night eating"
+  "key_findings": [
+    "Metabolic scores improved after reducing late-night eating",
+    "Steady improvement driven by consistent meal timing and increased activity",
+    "Glucose stability improving since diet changes"
   ],
-  "trajectory": {
-    "direction": "improving",
-    "drivers": ["consistent meal timing", "increased activity"]
-  },
-  "confidence": 0.80
+  "anomalies": [],
+  "data_quality": "high"
 }
 ```
+
+- **metrics**: Each long-term metabolic trend as a separate entry. `trend`: improving|declining|stable|insufficient_data. `status`: normal|optimal|attention|unknown.
+- **key_findings**: Lifestyle correlations, trajectory insights, and long-term patterns as strings with specific numbers.
+- **anomalies**: Concerning long-term metabolic patterns. `severity`: low|medium|high. Include date when available.
+- **data_quality**: high = complete data with values and context, medium = some gaps, low = very sparse.
 
 ## Guidelines
 

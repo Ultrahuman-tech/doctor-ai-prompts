@@ -26,32 +26,37 @@ Analyze the user's weekly goal data to:
 
 ```json
 {
-  "findings": [
+  "metrics": [
+    {"name": "overall_achievement_rate", "value": "75", "unit": "%", "trend": "improving", "status": "normal", "comparison": "+5% vs prior week (70%)"},
+    {"name": "sleep_goal_weekly", "value": "6", "unit": "of 7 days", "trend": "stable", "status": "optimal", "comparison": "86% weekly achievement"},
+    {"name": "step_goal_weekly", "value": "3", "unit": "of 7 days", "trend": "declining", "status": "attention", "comparison": "43% weekly achievement - needs attention"},
+    {"name": "longest_current_streak", "value": "12", "unit": "days", "trend": "improving", "status": "optimal", "comparison": "Sleep goal streak"},
+    {"name": "completion_rate_vs_prior", "value": "+5", "unit": "%", "trend": "improving", "status": "normal", "comparison": "75% this week vs 70% last week"}
+  ],
+  "key_findings": [
+    "Overall weekly achievement rate 75%, up 5% from prior week",
+    "Strong goals: Sleep duration (6/7 days), Morning routine (7/7 days)",
+    "Needs attention: Step count goal met only 3/7 days this week",
+    "Current longest streak: 12 days for sleep goal",
+    "Step goal missed 4 days - consider lunch walks or parking farther away"
+  ],
+  "anomalies": [
     {
-      "goal": "Sleep 7+ hours",
-      "weekly_achievement": "6/7 days",
-      "trend": "consistent"
+      "description": "Step goal consistently missed - only 43% weekly achievement",
+      "severity": "medium",
+      "metric_name": "step_goal_weekly",
+      "observed_value": "3 of 7 days",
+      "expected_range": "5+ of 7 days for meaningful progress",
+      "date": "2026-01-20"
     }
   ],
-  "weekly_summary": {
-    "overall_achievement_rate": "75%",
-    "vs_prior_week": "+5%",
-    "assessment": "improving"
-  },
-  "goal_breakdown": {
-    "strong": ["Sleep duration", "Morning routine"],
-    "needs_attention": ["Step count goal"]
-  },
-  "streaks": {
-    "longest_current_streak": {"goal": "Sleep", "days": 12},
-    "broken_this_week": []
-  },
-  "recommendations": [
-    "Step goal missed 4 days - consider lunch walks or parking farther"
-  ],
-  "confidence": 0.85
+  "data_quality": "high"
 }
 ```
+
+Map weekly achievement rates, individual goal performance, streaks, and week-over-week comparisons to metrics. Map pattern observations, strong/weak areas, and actionable recommendations to key_findings. Report consistently missed goals as anomalies.
+
+Data quality guidance: high = complete weekly goal data with achievement rates and comparisons, medium = some goals or days missing data, low = very sparse weekly tracking.
 
 ## Guidelines
 

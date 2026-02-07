@@ -25,33 +25,43 @@ Analyze the user's weekly cardiovascular data to:
 
 ```json
 {
-  "findings": [
+  "metrics": [
     {
-      "metric": "weekly_hrv_avg",
-      "value": 48,
-      "vs_baseline": "-8%",
-      "significance": "slightly below baseline"
+      "name": "weekly_hrv_avg",
+      "value": "48",
+      "unit": "ms",
+      "trend": "declining",
+      "status": "attention",
+      "comparison": "-8% vs baseline"
+    },
+    {
+      "name": "resting_heart_rate",
+      "value": "58",
+      "unit": "bpm",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": ""
+    },
+    {
+      "name": "hr_recovery",
+      "value": "25",
+      "unit": "bpm drop in 2 min",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "Good cardiovascular fitness"
     }
   ],
-  "hrv_analysis": {
-    "weekly_avg": 48,
-    "best_day": {"day": "Sunday", "value": 58},
-    "lowest_day": {"day": "Friday", "value": 38},
-    "pattern": "HRV dips mid-week, recovers on weekends"
-  },
-  "rhr_analysis": {
-    "weekly_avg": 58,
-    "trend": "stable",
-    "night_vs_day": "Night RHR 4bpm lower than day"
-  },
-  "recovery_analysis": {
-    "avg_hr_recovery": "25 bpm drop in 2 min",
-    "assessment": "good cardiovascular fitness"
-  },
-  "concerns": [],
-  "confidence": 0.85
+  "key_findings": [
+    "HRV best on Sunday (58ms), lowest Friday (38ms) — mid-week dip with weekend recovery pattern",
+    "Night RHR 4bpm lower than daytime — normal and healthy nocturnal dip",
+    "HR recovery of 25 bpm in 2 minutes indicates good cardiovascular fitness"
+  ],
+  "anomalies": [],
+  "data_quality": "high"
 }
 ```
+
+`data_quality`: high = complete data with values and context, medium = some gaps, low = very sparse
 
 ## Guidelines
 

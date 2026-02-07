@@ -24,34 +24,58 @@ Analyze the user's weekly temperature data to:
 
 ## Output Format
 
+Return ONLY valid JSON (no markdown, no commentary):
+
 ```json
 {
-  "findings": [
+  "metrics": [
     {
-      "metric": "avg_temp_deviation",
+      "name": "avg_temp_deviation",
       "value": "+0.2",
       "unit": "degrees from baseline",
-      "significance": "within normal variation"
-    }
-  ],
-  "pattern_analysis": {
-    "day_night_diff": "0.8 degrees cooler at night",
-    "assessment": "normal thermoregulation"
-  },
-  "deviations": [
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "Within normal variation"
+    },
     {
-      "date": "2026-01-20",
-      "deviation": "+0.8",
-      "possible_cause": "may indicate onset of illness or intense training"
+      "name": "day_night_temp_diff",
+      "value": "0.8",
+      "unit": "degrees cooler at night",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "Normal thermoregulation"
+    },
+    {
+      "name": "cycle_phase_temp",
+      "value": "elevated",
+      "unit": "",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "Consistent with luteal phase"
     }
   ],
-  "cycle_correlation": {
-    "phase": "luteal",
-    "expected_elevation": "yes, consistent with phase"
-  },
-  "confidence": 0.80
+  "key_findings": [
+    "Day/night temperature difference of 0.8 degrees indicates normal thermoregulation",
+    "Temperature pattern consistent with luteal phase of cycle"
+  ],
+  "anomalies": [
+    {
+      "description": "Temperature deviation of +0.8 degrees on Jan 20",
+      "severity": "medium",
+      "metric_name": "temp_deviation",
+      "observed_value": "+0.8 degrees",
+      "expected_range": "-0.3 to +0.5 degrees",
+      "date": "2026-01-20"
+    }
+  ],
+  "data_quality": "high"
 }
 ```
+
+- **metrics**: Each temperature metric as a separate entry. `trend`: improving|declining|stable|insufficient_data. `status`: normal|optimal|attention|unknown.
+- **key_findings**: Pattern analysis, cycle correlations, and thermoregulation insights as strings with specific numbers.
+- **anomalies**: Temperature deviations that may indicate illness, stress, or other concerns. `severity`: low|medium|high. Include date when available.
+- **data_quality**: high = complete data with values and context, medium = some gaps, low = very sparse.
 
 ## Guidelines
 

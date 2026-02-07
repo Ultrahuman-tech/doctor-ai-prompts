@@ -27,29 +27,43 @@ Analyze the user's weekly movement data to:
 
 ```json
 {
-  "findings": [
+  "metrics": [
     {
-      "metric": "avg_daily_steps",
-      "value": 9200,
-      "delta": "+800 vs prior week",
-      "significance": "improving"
+      "name": "avg_daily_steps",
+      "value": "9200",
+      "unit": "steps",
+      "trend": "improving",
+      "status": "normal",
+      "comparison": "+800 vs prior week"
+    },
+    {
+      "name": "workout_frequency",
+      "value": "4",
+      "unit": "workouts",
+      "trend": "improving",
+      "status": "normal",
+      "comparison": "vs 3.5 avg weekly workouts — above average"
+    },
+    {
+      "name": "step_goal_achievement",
+      "value": "5",
+      "unit": "days out of 7",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "71% goal achievement rate"
     }
   ],
-  "weekly_patterns": [
-    "Consistently higher activity Mon-Wed, lower Thu-Fri"
+  "key_findings": [
+    "Consistently higher activity Mon-Wed, lower Thu-Fri — recurring weekly pattern",
+    "Workout frequency above weekly average at 4 sessions this week",
+    "Step goal met 5 of 7 days — solid consistency"
   ],
-  "workout_consistency": {
-    "workouts_this_week": 4,
-    "avg_weekly_workouts": 3.5,
-    "assessment": "above average"
-  },
-  "goal_achievement": {
-    "step_goal_days": 5,
-    "out_of": 7
-  },
-  "confidence": 0.85
+  "anomalies": [],
+  "data_quality": "high"
 }
 ```
+
+`data_quality`: high = complete data with values and context, medium = some gaps, low = very sparse
 
 ## Guidelines
 

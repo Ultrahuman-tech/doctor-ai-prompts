@@ -27,30 +27,51 @@ Analyze the user's daily movement data to:
 
 ```json
 {
-  "findings": [
+  "metrics": [
     {
-      "metric": "steps",
-      "value": 8500,
-      "goal_progress": "85%",
-      "assessment": "close to daily goal"
+      "name": "steps",
+      "value": "8500",
+      "unit": "steps",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "85% of daily goal"
+    },
+    {
+      "name": "active_hours",
+      "value": "4.5",
+      "unit": "hours",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": ""
+    },
+    {
+      "name": "sedentary_hours",
+      "value": "8",
+      "unit": "hours",
+      "trend": "stable",
+      "status": "attention",
+      "comparison": ""
+    },
+    {
+      "name": "workout_met_minutes",
+      "value": "450",
+      "unit": "MET-min",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "1 workout, 380 calories"
     }
   ],
-  "activity_balance": {
-    "active_hours": 4.5,
-    "sedentary_hours": 8,
-    "assessment": "moderate activity day"
-  },
-  "workout_summary": {
-    "count": 1,
-    "met_minutes": 450,
-    "calories": 380
-  },
-  "highlights": [
-    "Most active hour was 7am with morning run"
+  "key_findings": [
+    "Close to daily step goal at 85% — moderate activity day",
+    "Most active hour was 7am with morning run",
+    "Activity balance: 4.5 active hours vs 8 sedentary hours — moderate overall"
   ],
-  "confidence": 0.85
+  "anomalies": [],
+  "data_quality": "high"
 }
 ```
+
+`data_quality`: high = complete data with values and context, medium = some gaps, low = very sparse
 
 ## Guidelines
 

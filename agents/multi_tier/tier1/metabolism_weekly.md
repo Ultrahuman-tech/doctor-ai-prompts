@@ -24,32 +24,67 @@ Analyze the user's weekly metabolic data to:
 
 ## Output Format
 
+Return ONLY valid JSON (no markdown, no commentary):
+
 ```json
 {
-  "findings": [
+  "metrics": [
     {
-      "metric": "metabolic_score",
-      "value": 78,
-      "vs_prior_week": "+3",
-      "significance": "improving"
+      "name": "metabolic_score",
+      "value": "78",
+      "unit": "points",
+      "trend": "improving",
+      "status": "normal",
+      "comparison": "+3 vs prior week"
+    },
+    {
+      "name": "glucose_variability",
+      "value": "low",
+      "unit": "",
+      "trend": "stable",
+      "status": "optimal",
+      "comparison": "Good glucose control"
+    },
+    {
+      "name": "glucose_stability_score",
+      "value": "82",
+      "unit": "points",
+      "trend": "stable",
+      "status": "optimal",
+      "comparison": ""
+    },
+    {
+      "name": "metabolic_efficiency",
+      "value": "higher AM, lower PM",
+      "unit": "",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "Front-load calories earlier in day"
     }
   ],
-  "glucose_analysis": {
-    "variability": "low",
-    "stability_score": 82,
-    "assessment": "good glucose control"
-  },
-  "efficiency_patterns": {
-    "morning": "higher metabolic efficiency",
-    "evening": "lower metabolic efficiency",
-    "recommendation": "front-load calories earlier in day"
-  },
-  "meal_timing_insights": [
-    "Better metabolic scores on days with earlier dinner"
+  "key_findings": [
+    "Better metabolic scores on days with earlier dinner",
+    "Morning metabolic efficiency higher than evening",
+    "Front-loading calories earlier in day may improve scores"
   ],
-  "confidence": 0.80
+  "anomalies": [
+    {
+      "description": "Glucose spike after late dinner on Wednesday",
+      "severity": "low",
+      "metric_name": "glucose_variability",
+      "observed_value": "high variability",
+      "expected_range": "low-moderate variability",
+      "date": "2026-01-22"
+    }
+  ],
+  "data_quality": "high"
 }
 ```
+
+- **metrics**: Each metabolic metric as a separate entry. `trend`: improving|declining|stable|insufficient_data. `status`: normal|optimal|attention|unknown.
+- **key_findings**: Efficiency patterns, meal timing insights, and actionable recommendations as strings with specific numbers.
+- **anomalies**: Glucose spikes or concerning metabolic patterns. `severity`: low|medium|high. Include date when available.
+- **data_quality**: high = complete data with values and context, medium = some gaps, low = very sparse.
 
 ## Guidelines
 

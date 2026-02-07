@@ -23,33 +23,59 @@ Analyze the user's social jetlag data to:
 
 ## Output Format
 
+Return ONLY valid JSON (no markdown, no commentary):
+
 ```json
 {
-  "findings": [
+  "metrics": [
     {
-      "metric": "social_jetlag",
-      "value": 1.5,
+      "name": "social_jetlag",
+      "value": "1.5",
       "unit": "hours",
-      "assessment": "moderate social jetlag"
+      "trend": "stable",
+      "status": "attention",
+      "comparison": "Moderate social jetlag"
+    },
+    {
+      "name": "workday_sleep_midpoint",
+      "value": "3:00 AM",
+      "unit": "",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": ""
+    },
+    {
+      "name": "freeday_sleep_midpoint",
+      "value": "4:30 AM",
+      "unit": "",
+      "trend": "stable",
+      "status": "attention",
+      "comparison": "1.5 hours later than workday midpoint"
+    },
+    {
+      "name": "schedule_consistency",
+      "value": "moderate",
+      "unit": "",
+      "trend": "stable",
+      "status": "attention",
+      "comparison": "Weekend shift affecting Monday recovery"
     }
   ],
-  "schedule_analysis": {
-    "workday_midpoint": "3:00 AM",
-    "freeday_midpoint": "4:30 AM",
-    "difference": "1.5 hours",
-    "severity": "moderate"
-  },
-  "health_impact": [
+  "key_findings": [
     "HRV tends to be lower on Monday after weekend schedule shift",
-    "Sleep scores lower early in the work week"
-  ],
-  "recommendations": [
+    "Sleep scores lower early in the work week",
     "Try to keep weekend bedtime within 1 hour of weekday bedtime",
     "Gradual Sunday night adjustment can ease Monday transition"
   ],
-  "confidence": 0.85
+  "anomalies": [],
+  "data_quality": "high"
 }
 ```
+
+- **metrics**: Each jetlag-related metric as a separate entry. `trend`: improving|declining|stable|insufficient_data. `status`: normal|optimal|attention|unknown.
+- **key_findings**: Health impacts, schedule patterns, and recommendations as strings with specific numbers.
+- **anomalies**: Severe schedule disruptions or concerning patterns. `severity`: low|medium|high. Include date when available.
+- **data_quality**: high = complete data with values and context, medium = some gaps, low = very sparse.
 
 ## Guidelines
 

@@ -26,26 +26,26 @@ Use product knowledge to:
 
 ```json
 {
-  "findings": [
-    {
-      "topic": "Sleep Score calculation",
-      "explanation": "Sleep Score is calculated from duration, efficiency, stages, and physiological markers",
-      "components": ["duration", "efficiency", "stage quality", "HR patterns", "HRV"]
-    }
+  "metrics": [
+    {"name": "sleep_score_components", "value": "5", "unit": "components", "trend": "stable", "status": "normal", "comparison": "Duration, efficiency, stage quality, HR patterns, HRV"},
+    {"name": "hrv_measurement_method", "value": "during sleep", "unit": "", "trend": "stable", "status": "normal", "comparison": "Most accurate reading during rest"},
+    {"name": "ring_sensor_count", "value": "multiple", "unit": "sensors", "trend": "stable", "status": "normal", "comparison": "HR, HRV, skin temperature, movement, sleep stages"}
   ],
-  "relevant_info": {
-    "query_topic": "HRV",
-    "definition": "Heart Rate Variability - variation in time between heartbeats",
-    "measurement": "Measured during sleep for most accurate reading",
-    "interpretation": "Higher HRV generally indicates better recovery and fitness"
-  },
-  "capabilities": [
+  "key_findings": [
+    "Sleep Score is calculated from duration, efficiency, stage quality, HR patterns, and HRV",
+    "HRV (Heart Rate Variability) measures variation in time between heartbeats - higher generally indicates better recovery",
+    "HRV is measured during sleep for the most accurate reading",
     "Ring measures: HR, HRV, skin temperature, movement, sleep stages",
-    "Cannot measure: blood oxygen, blood pressure directly"
+    "Ring cannot measure: blood oxygen, blood pressure directly"
   ],
-  "confidence": 0.95
+  "anomalies": [],
+  "data_quality": "high"
 }
 ```
+
+Map product feature details, metric definitions, and capability counts to metrics. Map explanations, definitions, measurement methods, capabilities, and limitations to key_findings. Anomalies are typically empty for product knowledge unless there are known measurement limitations to flag.
+
+Data quality guidance: high = comprehensive product knowledge available, medium = partial documentation, low = limited product information for the query topic.
 
 ## Guidelines
 

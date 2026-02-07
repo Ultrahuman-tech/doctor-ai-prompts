@@ -22,29 +22,50 @@ Analyze the user's monthly temperature data to:
 
 ## Output Format
 
+Return ONLY valid JSON (no markdown, no commentary):
+
 ```json
 {
-  "findings": [
+  "metrics": [
     {
-      "metric": "baseline_temperature",
-      "trend": "stable over past 6 months",
-      "significance": "normal"
+      "name": "baseline_temperature",
+      "value": "stable",
+      "unit": "",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "Stable over past 6 months"
+    },
+    {
+      "name": "thermoregulation",
+      "value": "healthy",
+      "unit": "",
+      "trend": "stable",
+      "status": "optimal",
+      "comparison": "Consistent baseline"
+    },
+    {
+      "name": "seasonal_variation",
+      "value": "normal",
+      "unit": "",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "Slightly lower in winter months"
     }
   ],
-  "seasonal_patterns": [
-    "Baseline slightly lower in winter months",
-    "Normal seasonal thermoregulation"
+  "key_findings": [
+    "Baseline slightly lower in winter months - normal seasonal thermoregulation",
+    "Temperature elevations correlate with periods of high training load",
+    "Overall thermoregulation is healthy with consistent baseline"
   ],
-  "health_correlations": [
-    "Temperature elevations correlate with periods of high training load"
-  ],
-  "long_term_assessment": {
-    "thermoregulation": "healthy",
-    "baseline_stability": "consistent"
-  },
-  "confidence": 0.80
+  "anomalies": [],
+  "data_quality": "high"
 }
 ```
+
+- **metrics**: Each long-term temperature trend as a separate entry. `trend`: improving|declining|stable|insufficient_data. `status`: normal|optimal|attention|unknown.
+- **key_findings**: Seasonal patterns, health correlations, and long-term assessment insights as strings with specific numbers.
+- **anomalies**: Gradual baseline shifts or concerning long-term patterns. `severity`: low|medium|high. Include date when available.
+- **data_quality**: high = complete data with values and context, medium = some gaps, low = very sparse.
 
 ## Guidelines
 

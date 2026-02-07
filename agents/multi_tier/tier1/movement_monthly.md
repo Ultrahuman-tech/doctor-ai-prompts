@@ -26,27 +26,43 @@ Analyze the user's monthly movement data to:
 
 ```json
 {
-  "findings": [
+  "metrics": [
     {
-      "metric": "monthly_avg_steps",
-      "value": 8500,
-      "trend": "stable over past 3 months",
-      "significance": "neutral"
+      "name": "monthly_avg_steps",
+      "value": "8500",
+      "unit": "steps/day",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "Stable over past 3 months"
+    },
+    {
+      "name": "activity_progression_3mo",
+      "value": "+15%",
+      "unit": "% change",
+      "trend": "improving",
+      "status": "optimal",
+      "comparison": "vs 3 months ago"
+    },
+    {
+      "name": "activity_progression_1yr",
+      "value": "+25%",
+      "unit": "% change",
+      "trend": "improving",
+      "status": "optimal",
+      "comparison": "vs 1 year ago"
     }
   ],
-  "long_term_trends": [
-    "Activity levels increasing since starting new workout routine in March"
+  "key_findings": [
+    "Activity levels increasing since starting new workout routine in March",
+    "Activity tends to decrease in winter months — seasonal pattern detected",
+    "+25% avg daily steps vs 1 year ago — strong long-term improvement"
   ],
-  "seasonal_patterns": [
-    "Activity tends to decrease in winter months"
-  ],
-  "progression": {
-    "vs_3_months_ago": "+15% avg daily steps",
-    "vs_1_year_ago": "+25% avg daily steps"
-  },
-  "confidence": 0.85
+  "anomalies": [],
+  "data_quality": "high"
 }
 ```
+
+`data_quality`: high = complete data with values and context, medium = some gaps, low = very sparse
 
 ## Guidelines
 

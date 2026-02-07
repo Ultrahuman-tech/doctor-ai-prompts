@@ -24,25 +24,52 @@ Analyze the user's monthly respiratory data to:
 
 ```json
 {
-  "findings": [
+  "metrics": [
     {
-      "metric": "monthly_avg_breathing_rate",
-      "value": 14.5,
-      "trend": "stable over past 6 months",
-      "significance": "normal"
+      "name": "monthly_avg_breathing_rate",
+      "value": "14.5",
+      "unit": "breaths/min",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "Stable over past 6 months"
+    },
+    {
+      "name": "breathing_regularity",
+      "value": "consistent",
+      "unit": "",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": "No significant changes"
+    },
+    {
+      "name": "breathing_disturbances",
+      "value": "decreasing",
+      "unit": "trend",
+      "trend": "improving",
+      "status": "normal",
+      "comparison": "Disturbances decreasing over time"
     }
   ],
-  "long_term_trends": {
-    "breathing_rate": "stable",
-    "regularity": "consistent",
-    "disturbances": "decreasing"
-  },
-  "seasonal_patterns": [
+  "key_findings": [
+    "Breathing rate stable at 14.5 breaths/min over past 6 months",
+    "Breathing regularity consistent with no significant changes",
     "Slightly elevated breathing rate during allergy season"
   ],
-  "confidence": 0.80
+  "anomalies": [
+    {
+      "description": "Slightly elevated breathing rate during allergy season",
+      "severity": "low",
+      "metric_name": "breathing_rate",
+      "observed_value": "16 breaths/min",
+      "expected_range": "12-15 breaths/min",
+      "date": ""
+    }
+  ],
+  "data_quality": "high|medium|low"
 }
 ```
+
+- **data_quality**: high = complete data with values and context, medium = some gaps or missing fields, low = very sparse data
 
 ## Guidelines
 

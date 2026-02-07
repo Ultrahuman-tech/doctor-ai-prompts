@@ -25,32 +25,34 @@ Analyze user-uploaded documents to:
 
 ```json
 {
-  "findings": [
+  "metrics": [
+    {"name": "vitamin_b12", "value": "350", "unit": "pg/mL", "trend": "stable", "status": "normal", "comparison": "Within normal range (200-900 pg/mL)"},
+    {"name": "tsh", "value": "2.1", "unit": "mIU/L", "trend": "stable", "status": "normal", "comparison": "Within normal range (0.4-4.0 mIU/L)"},
+    {"name": "total_cholesterol", "value": "195", "unit": "mg/dL", "trend": "stable", "status": "normal", "comparison": "Desirable (<200 mg/dL)"},
+    {"name": "documents_analyzed", "value": "1", "unit": "documents", "trend": "stable", "status": "normal", "comparison": ""}
+  ],
+  "key_findings": [
+    "Lab report from 2026-01-10: blood panel results all within normal ranges",
+    "Thyroid function normal - consistent with stable energy levels from ring data",
+    "Lipid panel values not fully visible in uploaded image - partial data"
+  ],
+  "anomalies": [
     {
-      "source": "uploaded lab report",
-      "upload_date": "2026-01-10",
-      "document_type": "blood panel",
-      "key_findings": [
-        "Vitamin B12: 350 pg/mL (normal)",
-        "TSH: 2.1 mIU/L (normal)"
-      ]
+      "description": "Lipid panel values partially obscured in uploaded image",
+      "severity": "low",
+      "metric_name": "lipid_panel",
+      "observed_value": "incomplete",
+      "expected_range": "full panel expected",
+      "date": "2026-01-10"
     }
   ],
-  "summary": {
-    "documents_analyzed": 1,
-    "document_types": ["lab report"],
-    "date_range": "2026-01-05"
-  },
-  "relevant_insights": [
-    "Lab results complement ring data - thyroid function normal may explain stable energy"
-  ],
-  "data_quality": {
-    "completeness": "partial - some values unclear in image",
-    "notes": ["Lipid panel values not fully visible"]
-  },
-  "confidence": 0.75
+  "data_quality": "medium"
 }
 ```
+
+Map each extracted lab value or health measurement to a metric entry. Map document summaries, cross-references with ring data, and actionable insights to key_findings. Report unclear, partial, or concerning values as anomalies.
+
+Data quality guidance: high = complete data with clear values and context, medium = some gaps or partially readable documents, low = very sparse or mostly unreadable uploads.
 
 ## Guidelines
 

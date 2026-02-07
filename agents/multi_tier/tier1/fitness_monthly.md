@@ -26,33 +26,44 @@ Analyze the user's monthly fitness data to:
 
 ```json
 {
-  "findings": [
+  "metrics": [
     {
-      "metric": "vo2max_progression",
-      "current": 44,
-      "6_month_change": "+4",
-      "significance": "meaningful improvement"
+      "name": "vo2max",
+      "value": "44",
+      "unit": "mL/kg/min",
+      "trend": "improving",
+      "status": "optimal",
+      "comparison": "+4 over past 6 months"
+    },
+    {
+      "name": "monthly_workout_frequency",
+      "value": "16",
+      "unit": "workouts/month",
+      "trend": "stable",
+      "status": "normal",
+      "comparison": ""
+    },
+    {
+      "name": "fitness_classification",
+      "value": "Good",
+      "unit": "",
+      "trend": "improving",
+      "status": "normal",
+      "comparison": "Top 40% for age group"
     }
   ],
-  "fitness_trajectory": {
-    "direction": "improving",
-    "rate": "steady gains",
-    "timeframe": "past 6 months"
-  },
-  "training_consistency": {
-    "avg_monthly_workouts": 16,
-    "trend": "stable"
-  },
-  "fitness_level": {
-    "classification": "Good",
-    "percentile": "Top 40% for age group"
-  },
-  "seasonal_patterns": [
-    "Training volume tends to decrease in winter"
+  "key_findings": [
+    "VO2max improving with steady gains over past 6 months — meaningful fitness progression",
+    "Training consistency stable at ~16 workouts per month — supports continued improvement",
+    "Fitness classification: Good, top 40% for age group",
+    "Training volume tends to decrease in winter — seasonal pattern to monitor"
   ],
-  "confidence": 0.85
+  "anomalies": [],
+  "data_quality": "high"
 }
 ```
+
+`data_quality`: high = complete data with values and context, medium = some gaps, low = very sparse
 
 ## Guidelines
 

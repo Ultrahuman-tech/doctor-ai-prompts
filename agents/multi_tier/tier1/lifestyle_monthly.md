@@ -23,32 +23,50 @@ Analyze the user's monthly lifestyle data to:
 
 ## Output Format
 
+Return ONLY valid JSON (no markdown, no commentary):
+
 ```json
 {
-  "findings": [
+  "metrics": [
     {
-      "metric": "monthly_screen_time_trend",
-      "trend": "decreasing over past 3 months",
-      "significance": "positive lifestyle change"
+      "name": "monthly_screen_time_trend",
+      "value": "3.8",
+      "unit": "hours/day avg",
+      "trend": "improving",
+      "status": "normal",
+      "comparison": "Decreasing over past 3 months"
+    },
+    {
+      "name": "vitamin_d_consistency",
+      "value": "82",
+      "unit": "% days tracked",
+      "trend": "improving",
+      "status": "normal",
+      "comparison": "Improving since summer"
+    },
+    {
+      "name": "lifestyle_habit_score",
+      "value": "7.5",
+      "unit": "out of 10",
+      "trend": "improving",
+      "status": "optimal",
+      "comparison": "Up from 6.2 three months ago"
     }
   ],
-  "habit_consistency": {
-    "vitamin_d": "improving since summer",
-    "screen_time": "gradually decreasing"
-  },
-  "seasonal_patterns": [
-    "Vitamin D intake naturally higher in summer with more sun exposure"
+  "key_findings": [
+    "Sleep scores improved as evening screen time decreased",
+    "Vitamin D intake naturally higher in summer with more sun exposure",
+    "Key improvements: reduced screen time and more sun exposure"
   ],
-  "health_correlations": [
-    "Sleep scores improved as evening screen time decreased"
-  ],
-  "trajectory": {
-    "lifestyle_direction": "improving",
-    "key_improvements": ["reduced screen time", "more sun exposure"]
-  },
-  "confidence": 0.80
+  "anomalies": [],
+  "data_quality": "high"
 }
 ```
+
+- **metrics**: Each lifestyle trend as a separate entry. `trend`: improving|declining|stable|insufficient_data. `status`: normal|optimal|attention|unknown.
+- **key_findings**: Seasonal patterns, health correlations, trajectory insights as strings with specific numbers.
+- **anomalies**: Concerning long-term patterns. `severity`: low|medium|high. Include date when available.
+- **data_quality**: high = complete data with values and context, medium = some gaps, low = very sparse.
 
 ## Guidelines
 

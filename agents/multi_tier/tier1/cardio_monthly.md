@@ -25,29 +25,44 @@ Analyze the user's monthly cardiovascular data to:
 
 ```json
 {
-  "findings": [
+  "metrics": [
     {
-      "metric": "monthly_hrv_trend",
-      "current": 52,
-      "3_month_trend": "improving +8%",
-      "significance": "positive"
+      "name": "monthly_hrv_avg",
+      "value": "52",
+      "unit": "ms",
+      "trend": "improving",
+      "status": "normal",
+      "comparison": "+8% over past 3 months"
+    },
+    {
+      "name": "resting_heart_rate",
+      "value": "56",
+      "unit": "bpm",
+      "trend": "improving",
+      "status": "optimal",
+      "comparison": "-3 bpm since starting exercise program"
+    },
+    {
+      "name": "hr_recovery_trend",
+      "value": "improving",
+      "unit": "",
+      "trend": "improving",
+      "status": "normal",
+      "comparison": "Recovery time decreasing over past 6 months"
     }
   ],
-  "long_term_trends": {
-    "hrv": "Gradual improvement over past 6 months",
-    "rhr": "Decreased 3bpm since starting exercise program",
-    "recovery": "HR recovery time improving"
-  },
-  "fitness_trajectory": {
-    "direction": "improving",
-    "evidence": "RHR down, HRV up, recovery faster"
-  },
-  "seasonal_patterns": [
-    "HRV tends to be higher in summer months"
+  "key_findings": [
+    "Gradual HRV improvement over past 6 months — positive autonomic nervous system adaptation",
+    "RHR decreased 3bpm since starting exercise program — cardiovascular fitness improving",
+    "HR recovery time improving — supports fitness trajectory assessment",
+    "HRV tends to be higher in summer months — seasonal pattern detected"
   ],
-  "confidence": 0.85
+  "anomalies": [],
+  "data_quality": "high"
 }
 ```
+
+`data_quality`: high = complete data with values and context, medium = some gaps, low = very sparse
 
 ## Guidelines
 
